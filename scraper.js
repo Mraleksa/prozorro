@@ -41,7 +41,7 @@ function fetchPage(url, callback) {
 
 function run(db) {
 	// Use request to read in pages.
-	fetchPage("https://prozorro.gov.ua/tender/UA-2016-09-01-000199-a", function (body) {
+	fetchPage("https://prozorro.gov.ua/tender/UA-2016-09-21-001354-c", function (body) {
 		// Use cheerio to find things in the page with css selectors.
 		var $ = cheerio.load(body);
 
