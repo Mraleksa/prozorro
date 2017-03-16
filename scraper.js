@@ -44,7 +44,11 @@ function run(db) {
 	fetchPage("https://prozorro.gov.ua/tender/UA-2016-09-01-000199-a", function (body) {
 		// Use cheerio to find things in the page with css selectors.
 		var $ = cheerio.load(body);
-		var res = $.match( /Зміна ціни за одиницю товару/ig ).join(';');
+
+	
+	try {
+
+ var res = $.match( /Зміна ціни за одиницю товару/ig ).join(';');
 if (res)res = "true";
 
 } catch (err) {
@@ -52,6 +56,8 @@ if (res)res = "true";
   var res = "false";
 
 }
+	
+	
 	console.log(res)
 	
 			updateRow(db, res);
