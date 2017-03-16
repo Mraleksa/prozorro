@@ -46,19 +46,13 @@ function run(db) {
 		var $ = cheerio.load(body);
 
 	
-	try {
+	
 
  var res = $.match( /Зміна ціни за одиницю товару/ig ).join(';');
-if (res)res = "true";
 
-} catch (err) {
-
-  var res = "false";
-
-}
-	
-	
 	console.log(res)
+	
+	
 	
 			updateRow(db, res);
 		
