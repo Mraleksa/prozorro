@@ -41,14 +41,21 @@ function fetchPage(url, callback) {
 
 function run(db) {
 	// Use request to read in pages.
-	fetchPage("https://morph.io", function (body) {
+	fetchPage("https://prozorro.gov.ua/tender/UA-2016-09-01-000199-a", function (body) {
 		// Use cheerio to find things in the page with css selectors.
 		var $ = cheerio.load(body);
+		var res = $.match( /Зміна ціни за одиницю товару/ig ).join(';');
+if (res)res = "true";
 
-		var elements = $("div.media-body span.p-name").each(function () {
-			var value = $(this).text().trim();
-			updateRow(db, value);
-		});
+} catch (err) {
+
+  var res = "false";
+
+}
+	console.log(res)
+	
+			updateRow(db, res);
+		
 
 		readRows(db);
 
