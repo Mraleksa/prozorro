@@ -47,10 +47,7 @@ function run(db) {
 
 	
 	
-
- var res = $.match( /Зміна ціни за одиницю товару/ig ).join(';');
-
-	console.log(res)
+	console.log($)
 	
 	
 	
